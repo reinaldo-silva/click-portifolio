@@ -14,13 +14,13 @@ const Header: React.FC = () => {
 
       <nav className="hidden md:block space-x-8">
         <Link href="/projects">
-          <a className="tracking-wide hover:text-gray-300">Projetos</a>
+          <a className="tracking-wide hover:text-green-500">Projetos</a>
         </Link>
         <Link href="/about">
-          <a className="tracking-wide hover:text-gray-300">Sobre</a>
+          <a className="tracking-wide hover:text-green-500">Sobre</a>
         </Link>
         <Link href="/contact">
-          <a className="tracking-wide hover:text-gray-300">Contato</a>
+          <a className="tracking-wide hover:text-green-500">Contato</a>
         </Link>
       </nav>
     </header>

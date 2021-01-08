@@ -1,27 +1,23 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
+
+import Body from "../components/Body";
 
 const About: React.FC = () => {
   return (
-    <div className="flex flex-col items-center">
-      <motion.img
-        src="/img/info.svg"
-        layoutId="sobre-logo"
-        transition={{ duration: 0.5 }}
-      />
-
-      {/*       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-      >
-        <Link href="/">
-          <a className="bg-gray-900 text-gray-50 px-6 py-3 text-lg font-semibold rounded-xl hover:bg-gray-700 transition">
-            Voltar para a Home
-          </a>
-        </Link>
-      </motion.div> */}
-    </div>
+    <Body imgSrc={"/img/info.svg"} title={"Sobre"} layoutId={"sobre-logo"}>
+      <motion.p className="text-2xl mb-8">
+        Uma mente em constante desenvolvimento
+      </motion.p>
+      <motion.p className="text-2xl">
+        Um jovem estudante de 23 anos apaixonado por todo tipo de tecnologia que
+        pulou de cabeça no mundo do TI. Graduando em Sistemas da Informação no
+        UNIFAFIBE, procuro aprender e estar por dentro de todas tecnologias de
+        desenvolvimento. Atualmente trabalho como Desenvolvedor Front-End na
+        ImobPower, um local onde tenho muito a aprender e crescer
+        profissionalmente. Com essa experiencia, pretendo me tornar um
+        desenvolvedor Full-Stack muito em breve.
+      </motion.p>
+    </Body>
   );
 };
 

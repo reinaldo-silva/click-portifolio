@@ -5,21 +5,24 @@ interface CardProps {
   href: string;
   imgSrc: string;
   layoutId: string;
+  name: string;
 }
 
-const Card: React.FC<CardProps> = ({ href, imgSrc, layoutId }) => {
+const Card: React.FC<CardProps> = ({ href, imgSrc, layoutId, name }) => {
   return (
     <Link href={href}>
       <motion.div
         variants={variants}
-        className="relative h-20 h-40 bg-gray-300 p-4  rounded-xl cursor-pointer hover:bg-gray-100 transition"
+        className="h-20 bg-green-300 p-3 grid grid-cols-2 grid-rows-1 rounded-xl cursor-pointer hover:bg-green-100 transition"
       >
         <motion.img
           src={imgSrc}
-          className="w-full h-full"
+          className="h-full w-full"
           layoutId={layoutId}
         />
-        {/* <motion.span>Texto</motion.span> */}
+        <motion.span className="w-full flex items-center text-xl">
+          {name}
+        </motion.span>
       </motion.div>
     </Link>
   );
@@ -69,16 +72,19 @@ const Home = () => {
           imgSrc={"/img/dev.svg"}
           href={"/projects"}
           layoutId={"projetos-logo"}
+          name={"Projetos"}
         />
         <Card
           imgSrc={"/img/info.svg"}
           href={"/about"}
           layoutId={"sobre-logo"}
+          name={"Sobre"}
         />
         <Card
           imgSrc={"/img/contact.svg"}
           href={"/contact"}
           layoutId={"contato-logo"}
+          name={"Contato"}
         />
       </motion.div>
     </>

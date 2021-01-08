@@ -2,6 +2,8 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  background: #E5E7EB;
+  color: #111827;
 }
 
 a {
