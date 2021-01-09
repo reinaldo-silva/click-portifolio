@@ -12,15 +12,17 @@ const Card: React.FC<CardProps> = ({ href, imgSrc, layoutId, name }) => {
   return (
     <Link href={href}>
       <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         variants={variants}
-        className="h-20 bg-green-300 p-3 grid grid-cols-2 grid-rows-1 rounded-xl cursor-pointer hover:bg-green-100 transition"
+        className="h-20 p-3 border-2 border-light-blue-500 border-opacity-100 grid grid-cols-2 grid-rows-1 cursor-pointer transition"
       >
         <motion.img
           src={imgSrc}
           className="h-full w-full"
           layoutId={layoutId}
         />
-        <motion.span className="w-full flex items-center text-xl">
+        <motion.span className="w-full flex items-center text-xl uppercase">
           {name}
         </motion.span>
       </motion.div>
@@ -40,27 +42,56 @@ const variants: Variants = {
   },
 };
 
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 const Home = () => {
   return (
     <>
-      <motion.div className="mt-32 grid w-full grid-cols-1 grid-rows-2 gap-4">
+      <motion.div
+        className="mt-32 grid w-full grid-cols-1 grid-rows-2 gap-4"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
         <motion.div className="relative flex justify-center transition">
           <motion.img
+            variants={item}
             src="/me.jpg"
             alt="Picture of the author"
             className="h-40 w-40 rounded-xl"
           />
         </motion.div>
 
-        <motion.div className="flex justify-center items-center flex-col">
-          <motion.p className="mb-4 font-semibold text-2xl">
+        <motion.div
+          className="flex justify-center items-center"
+          variants={item}
+        >
+          <motion.p className="font-semibold text-2xl">
             Reinaldo Luiz da Silva Junior
           </motion.p>
         </motion.div>
       </motion.div>
 
       <motion.div
-        className="mt-16 grid w-full grid-cols-1 grid-rows-3 gap-4 md:grid-cols-3 md:grid-rows-1"
+        className="mt-16 grid w-full grid-cols-1 grid-rows-3 gap-6 md:grid-cols-3 md:grid-rows-1"
         /*         transition={{
           delay: 2,
         }}

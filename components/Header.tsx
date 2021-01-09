@@ -6,7 +6,10 @@ const Header: React.FC = () => {
     <header className="flex justify-center md:justify-between py-2 md:py-4 items-center">
       <Link href="/">
         <a>
-          <motion.h1 className="font-bold text-3xl cursor-">
+          <motion.h1
+            whileTap={{ scale: 0.9 }}
+            className="font-bold text-3xl cursor- "
+          >
             Developer web
           </motion.h1>
         </a>
