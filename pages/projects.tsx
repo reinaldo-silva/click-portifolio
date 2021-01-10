@@ -11,45 +11,57 @@ const Projects: React.FC = () => {
 
   const [selectedId, setSelectedId] = useState(null);
 
+  const hidden = "hidden";
+  const show =
+    "absolute w-full h-full flex items-center top-0 max-w-5xl box-border pl-8 pr-24 bg-black bg-opacity-20";
+
   useEffect(() => {
     console.log(selectedId);
   }, [selectedId]);
   return (
     <Body imgSrc={"/img/dev.svg"} title={"Projetos"} layoutId={"projetos-logo"}>
-      <motion.div className="grid grid-rows-4 grid-cols-1 md:grid-rows-2 md:grid-cols-2 gap-6">
-        <AnimateSharedLayout type="crossfade">
+      <AnimateSharedLayout type="crossfade">
+        <motion.div className="grid w-full relative grid-rows-4 grid-cols-1 md:grid-rows-2 md:grid-cols-2 gap-8">
           {items.map((item) => (
-            <>
-              <motion.div
-                key={item.id}
-                className="w-full h-40 bg-gray-900 flex flex-1 items-center justify-center rounded-md"
-                layoutId={item.id}
-                onClick={() => setSelectedId(item.id)}
-              >
-                <motion.h5>{item.subtitle}</motion.h5>
-                <motion.h2>{item.title}</motion.h2>
-              </motion.div>
+            <motion.div
+              key={item.id}
+              className="text-black w-full relative h-40 bg-gray-200 flex flex-1 items-center justify-center rounded-2xl"
+              layoutId={item.id}
+              onClick={() => setSelectedId(item.id)}
+            >
+              <motion.img src="/img/bgImg.jpg" className="h-full" />
+              <motion.h5>{item.subtitle}</motion.h5>
+              <motion.h2>{item.title}</motion.h2>
+            </motion.div>
+          ))}
+        </motion.div>
 
-              <AnimatePresence>
-                {selectedId == item.id && (
-                  <motion.div
-                    layoutId={item.id}
-                    className="relative w-full h-40 bg-green-300"
-                  >
-                    <motion.h5>Subtitle</motion.h5>
+        <motion.div className={selectedId ? show : hidden}>
+          {items.map((item) => (
+            <AnimatePresence>
+              {selectedId == item.id && (
+                <motion.div
+                  layoutId={item.id}
+                  className="relative w-full h-40 bg-green-300"
+                >
+                  <motion.header className="flex justify-between p-4">
                     <motion.h2>Title</motion.h2>
                     <motion.button
-                      className="w-20 h-20 bg-gray-300"
+                      className="w-10 h-10 bg-gray-300 text-black rounded-3xl"
                       value={"Back"}
                       onClick={() => setSelectedId(null)}
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </>
+                    >
+                      X
+                    </motion.button>
+                  </motion.header>
+
+                  <motion.h5>Subtitle</motion.h5>
+                </motion.div>
+              )}
+            </AnimatePresence>
           ))}
-        </AnimateSharedLayout>
-      </motion.div>
+        </motion.div>
+      </AnimateSharedLayout>
     </Body>
   );
 };
