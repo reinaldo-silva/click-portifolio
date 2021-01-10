@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
       layoutId={"contato-logo"}
     >
       <motion.div className="flex items-center content-around flex-col md:flex-row h-full w-full text-2xl">
-        <motion.p className="w-full md:w-1/2 flex justify-center">
+        <motion.p className="w-full md:w-1/2 my-9 flex justify-center">
           Telefone: (17) 99111-5889
         </motion.p>
         <motion.p className="w-full md:w-1/2 flex justify-center">
