@@ -21,10 +21,34 @@ const variants: Variants = {
 
 const Projects: React.FC = () => {
   const items = [
-    { id: "1", subtitle: "subititle", title: "title", box: 1 },
-    { id: "2", subtitle: "subititle", title: "title", box: 3 },
-    { id: "3", subtitle: "subititle", title: "title", box: 3 },
-    { id: "4", subtitle: "subititle", title: "title", box: 1 },
+    {
+      id: "1",
+      subtitle: "subititle",
+      title: "title",
+      box: 1,
+      img: "/img/dev1.jpg",
+    },
+    {
+      id: "2",
+      subtitle: "subititle",
+      title: "title",
+      box: 3,
+      img: "/img/dev2.jpg",
+    },
+    {
+      id: "3",
+      subtitle: "subititle",
+      title: "title",
+      box: 3,
+      img: "/img/dev3.jpg",
+    },
+    {
+      id: "4",
+      subtitle: "subititle",
+      title: "title",
+      box: 1,
+      img: "/img/dev4.jpg",
+    },
   ];
 
   const [selectedId, setSelectedId] = useState(null);
@@ -55,7 +79,7 @@ const Projects: React.FC = () => {
               whileTap={{ scale: 0.9 }}
               variants={variants}
             >
-              <motion.img src="/img/bgImg.jpg" className="w-full absolute" />
+              <motion.img src={item.img} className="w-full absolute" />
               <section className="w-full h-full flex items-center justify-center flex-col bg-black z-10 bg-opacity-40">
                 <motion.h2 className="z-10 text-white w-full ml-4 font-bold text-3xl ">
                   {item.title}
@@ -81,10 +105,7 @@ const Projects: React.FC = () => {
                   whileTap={{ scale: 0.9 }}
                 >
                   <motion.header className="flex h-96 justify-start">
-                    <motion.img
-                      src="/img/bgImg.jpg"
-                      className="w-full absolute"
-                    />
+                    <motion.img src={item.img} className="w-full absolute" />
                     <motion.div className="z-10 p-10">
                       <motion.h2 className="text-white w-full font-bold text-3xl ">
                         {item.title}
